@@ -26,6 +26,13 @@ module.exports = {
                           { text: 'Attest Functions', link: '/about/attestfunctions' } ,
                         ]
                 },
+                {
+                    text: 'Attest Functionalities',
+                    collapsed: false,
+                        items: [
+                          { text: 'Attest Functions', link: '/attestfunc' } ,
+                        ]
+                },
                 
                 ],
     }
