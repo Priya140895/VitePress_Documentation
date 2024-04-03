@@ -14,7 +14,7 @@ module.exports = {
                 text: 'Attest Installation',
                 collapsed: false,
                     items: [
-                      { text: 'Attest Installation', link: '/about/Attest-installation' } 
+                      { text: 'Attest Installation', link: '/about/attestinstallation' } 
                     ]
                 },
 
@@ -22,8 +22,8 @@ module.exports = {
                     text: 'Attest Functionalities',
                     collapsed: false,
                         items: [
-                          { text: 'Attest Track', link: '/about/Attest-Track' } ,
-                          { text: 'Attest Functions', link: '/about/Attest-Functions' } ,
+                          { text: 'Attest Track', link: '/about/attesttrack' } ,
+                          { text: 'Attest Functions', link: '/about/attestfunctions' } ,
                         ]
                 },
                 
