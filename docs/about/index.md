@@ -1,6 +1,6 @@
 
 ## ABOUT
-###
+
 
 
 ##### In this document, we will walk you through the basic building blocks of automating your testing. 

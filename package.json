@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
+    "dev": "vite",
+    "build": "npm build",
     "docs:dev": "vitepress dev docs",
+    "docs:build":"vitepress build docs",
+    "docs:server": "vitepress server docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
