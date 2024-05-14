@@ -37,8 +37,7 @@ jobs:
       - name: Add config.js
         run: |
           echo "module.exports = {" > docs/.vitepress/config.js
-          echo "  title: 'Attest'," >> docs/.vitepress/config.js
-          echo "  description: 'Attest Description'" >> docs/.vitepress/config.js
+          echo "  title: 'Attestceck'," >> docs/.vitepress/config.js
           echo "}" >> docs/.vitepress/config.js
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
