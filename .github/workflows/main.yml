@@ -49,8 +49,8 @@ jobs:
           echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
           echo "        collapsed: false," >> docs/.vitepress/config.js
           echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Track', link: '/about/attesttrack.md' }," >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Functions', link: '/about/attestfunctions.md' }" >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Track', link: '/VitePress_Documentation/about/attesttrack' }," >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Functions', link: '/VitePress_Documentation/about/attestfunctions' }" >> docs/.vitepress/config.js
           echo "        ]" >> docs/.vitepress/config.js
           echo "      }," >> docs/.vitepress/config.js
           echo "      {" >> docs/.vitepress/config.js
