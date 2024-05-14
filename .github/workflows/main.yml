@@ -9,7 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -30,34 +29,16 @@ jobs:
       - name: Add config.js
         run: |
           echo "module.exports = {" > docs/.vitepress/config.js
-          echo "  title: 'Attest Documentation'," >> docs/.vitepress/config.js
+          echo "  title: 'Attest'," >> docs/.vitepress/config.js
+          echo "  description: 'Attest Description'," >> docs/.vitepress/config.js
           echo "  themeConfig: {" >> docs/.vitepress/config.js
-          echo "    nav: [" >> docs/.vitepress/config.js
-          echo "      { text: 'Home', link: '/' }," >> docs/.vitepress/config.js
-          echo "      { text: 'About', link: '/about/' }," >> docs/.vitepress/config.js
-          echo "      { text: 'Contact', link: '/contact' }" >> docs/.vitepress/config.js
-          echo "    ]," >> docs/.vitepress/config.js
           echo "    sidebar: [" >> docs/.vitepress/config.js
           echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Installation'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Installation', link: '/about/attestinstallation' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }," >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Track', link: '/about/attesttrack' }," >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Functions', link: '/about/attestfunctions' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }," >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Functions', link: '/attestfunc' }" >> docs/.vitepress/config.js
+          echo "        text: 'About'," >> docs/.vitepress/config.js
+          echo "        children: [" >> docs/.vitepress/config.js
+          echo "          '/about/'," >> docs/.vitepress/config.js
+          echo "          '/VitePress_Documentation/about/attesttrack'," >> docs/.vitepress/config.js
+          echo "          '/VitePress_Documentation/about/attestfunctions'" >> docs/.vitepress/config.js
           echo "        ]" >> docs/.vitepress/config.js
           echo "      }" >> docs/.vitepress/config.js
           echo "    ]" >> docs/.vitepress/config.js
