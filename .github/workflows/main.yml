@@ -51,7 +51,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ https://priya140895.github.io/VitePress_Documentation/ }}
+      url: 'https://priya140895.github.io/VitePress_Documentation/'    
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
