@@ -4,7 +4,7 @@ on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
   push:
-    branches: [master]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,7 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-         
         with:
           node-version: 20
           cache: npm # or pnpm / yarn
@@ -35,12 +34,19 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm ci # or pnpm install / yarn install / bun install
+      - name: Add config.js
+        run: |
+          echo "module.exports = {" > docs/.vitepress/config.js
+          echo "  title: 'Attest'," >> docs/.vitepress/config.js
+          echo "  description: 'Attest Description'" >> docs/.vitepress/config.js
+          echo "}" >> docs/.vitepress/config.js
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+
            # Deployment job
   deploy:
     environment:
