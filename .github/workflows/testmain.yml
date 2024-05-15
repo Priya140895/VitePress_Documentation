@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -25,9 +26,43 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
+        run: npm ci
+      - name: Add config.js
         run: |
-          npm ci
-          npm install js-yaml
+          echo "module.exports = {" > docs/.vitepress/config.js
+          echo "  title: 'Attest Documentation'," >> docs/.vitepress/config.js
+          echo "  themeConfig: {" >> docs/.vitepress/config.js
+          echo "    nav: [" >> docs/.vitepress/config.js
+          echo "      { text: 'Home', link: '/' }," >> docs/.vitepress/config.js
+          echo "      { text: 'About', link: '/about/' }," >> docs/.vitepress/config.js
+          echo "      { text: 'Contact', link: '/contact' }" >> docs/.vitepress/config.js
+          echo "    ]," >> docs/.vitepress/config.js
+          echo "    sidebar: [" >> docs/.vitepress/config.js
+          echo "      {" >> docs/.vitepress/config.js
+          echo "        text: 'Attest Installation'," >> docs/.vitepress/config.js
+          echo "        collapsed: false," >> docs/.vitepress/config.js
+          echo "        items: [" >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Installation', link: '/about/attestinstallation' }" >> docs/.vitepress/config.js
+          echo "        ]" >> docs/.vitepress/config.js
+          echo "      }," >> docs/.vitepress/config.js
+          echo "      {" >> docs/.vitepress/config.js
+          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
+          echo "        collapsed: false," >> docs/.vitepress/config.js
+          echo "        items: [" >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Track', link: '/about/attesttrack' }," >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Functions', link: '/about/attestfunctions' }" >> docs/.vitepress/config.js
+          echo "        ]" >> docs/.vitepress/config.js
+          echo "      }," >> docs/.vitepress/config.js
+          echo "      {" >> docs/.vitepress/config.js
+          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
+          echo "        collapsed: false," >> docs/.vitepress/config.js
+          echo "        items: [" >> docs/.vitepress/config.js
+          echo "          { text: 'Attest Functions', link: '/attestfunc' }" >> docs/.vitepress/config.js
+          echo "        ]" >> docs/.vitepress/config.js
+          echo "      }" >> docs/.vitepress/config.js
+          echo "    ]" >> docs/.vitepress/config.js
+          echo "  }" >> docs/.vitepress/config.js
+          echo "}" >> docs/.vitepress/config.js
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
@@ -38,7 +73,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: 'https://priya140895.github.io/VitePress_Documentation/'    
+      url: 'https://priya140895.github.io/VitePress_Documentation/'
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
@@ -46,13 +81,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # Create the dist directory if it doesn't exist
-      - name: Create dist directory if not exists
-        run: mkdir -p docs/.vitepress/dist
-
-      # Retrieve and include config.js content
-      - name: Generate config.yaml from config.js
-        run: |
-          # Convert config.js to YAML format
-          node -e "console.log(require('js-yaml').dump(require('./docs/.vitepress/config.js')))" > docs/.vitepress/dist/config.yaml
