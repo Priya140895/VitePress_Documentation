@@ -27,31 +27,6 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm ci
-      - name: Add config.js
-        run: |
-          echo "module.exports = {" > docs/.vitepress/config.js
-          echo "  title: 'Attest Documentation'," >> docs/.vitepress/config.js
-          echo "  themeConfig: {" >> docs/.vitepress/config.js
-          echo "    sidebar: [" >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Installation'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Installation', link: '/about/attestinstallation' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }," >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Functions', link: '/about/attestfunctions.html' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }," >> docs/.vitepress/config.js
-          echo "    ]" >> docs/.vitepress/config.js
-          echo "  }" >> docs/.vitepress/config.js
-          echo "}" >> docs/.vitepress/config.js
-
-     
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
