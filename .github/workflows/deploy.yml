@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
          # path: docs/.vitepress/dist
-          path: docs/about/attestfunc.md
+          path: docs/attestfunc.md
 
            # Deployment job
   deploy:
