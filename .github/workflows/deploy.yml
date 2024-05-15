@@ -51,7 +51,7 @@ jobs:
       - name: Create attesttrack.md
         run: |
           echo "# Attest Track" > docs/attesttrack.md
-          echo "This is the content of Attest Track." >> docs/attesttrack.md
+        #  echo "This is the content of Attest Track." >> docs/attesttrack.md
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
