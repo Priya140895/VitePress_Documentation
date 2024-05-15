@@ -9,7 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -27,10 +26,6 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm ci
-         # Add a step to include config.js
-      - name: Include config.js
-        run: cp docs/.vitepress/config.js docs/.vitepress/dist/config.js
-  
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
@@ -41,7 +36,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: 'https://priya140895.github.io/VitePress_Documentation/'
+      url: 'https://priya140895.github.io/VitePress_Documentation/'    
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
@@ -49,3 +44,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Retrieve and include config.js
+      - name: Get config.js content
+        run: |
+          cat docs/.vitepress/config.js > config.js_content.txt
+
+      - name: Include config.js in deployment
+        run: |
+          echo "config_js_content: |" >> docs/.vitepress/dist/config.yaml
+          cat config.js_content.txt >> docs/.vitepress/dist/config.yaml
