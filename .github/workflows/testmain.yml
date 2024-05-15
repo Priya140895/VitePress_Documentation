@@ -32,11 +32,6 @@ jobs:
           echo "module.exports = {" > docs/.vitepress/config.js
           echo "  title: 'Attest Documentation'," >> docs/.vitepress/config.js
           echo "  themeConfig: {" >> docs/.vitepress/config.js
-          echo "    nav: [" >> docs/.vitepress/config.js
-          echo "      { text: 'Home', link: '/' }," >> docs/.vitepress/config.js
-          echo "      { text: 'About', link: '/about/' }," >> docs/.vitepress/config.js
-          echo "      { text: 'Contact', link: '/contact' }" >> docs/.vitepress/config.js
-          echo "    ]," >> docs/.vitepress/config.js
           echo "    sidebar: [" >> docs/.vitepress/config.js
           echo "      {" >> docs/.vitepress/config.js
           echo "        text: 'Attest Installation'," >> docs/.vitepress/config.js
