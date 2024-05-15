@@ -34,30 +34,18 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm ci # or pnpm install / yarn install / bun install
-      - name: Add config.js
+      
+      - name: Create attestfunction.md
         run: |
-          echo "module.exports = {" > docs/.vitepress/config.js
-          echo "  title: 'Attest'," >> docs/.vitepress/config.js
-          echo "  description: 'Attest Description'," >> docs/.vitepress/config.js
-          echo "  themeConfig: {" >> docs/.vitepress/config.js
-          echo "    sidebar: {" >> docs/.vitepress/config.js
-          echo "      '/': [" >> docs/.vitepress/config.js
-          echo "        { text: 'Home', link: '/' }," >> docs/.vitepress/config.js
-          echo "        { text: 'Attest Track', link: '/attesttrack.md' }" >> docs/.vitepress/config.js
-          echo "      ]," >> docs/.vitepress/config.js
-          echo "    }," >> docs/.vitepress/config.js
-          echo "  }," >> docs/.vitepress/config.js
-          echo "}" >> docs/.vitepress/config.js
-      - name: Create attesttrack.md
-        run: |
-          echo "# Attest Track" > docs/attesttrack.md
-          echo "This is the content of Attest Track." >> docs/attesttrack.md
+          echo "# Attest Functions"
+          path docs/.vitepress/dist/about/attestfunctions.html
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+         path: docs/.vitepress/dist
+         
 
            # Deployment job
   deploy:
