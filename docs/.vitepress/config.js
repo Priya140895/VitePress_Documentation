@@ -25,7 +25,7 @@ module.exports = {
                         ]
                 },
                 {
-                    text: 'Attest Functionalities',
+                    text: 'Attest func',
                     collapsed: false,
                         items: [
                           { text: 'Attest Functions', link: '/attestfunc' } ,
