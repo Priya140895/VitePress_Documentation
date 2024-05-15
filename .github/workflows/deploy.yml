@@ -69,11 +69,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: vitepress-site
-          path: docs/.vitepress/dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
