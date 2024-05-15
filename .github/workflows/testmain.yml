@@ -45,12 +45,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # Retrieve and include config.js
-      - name: Get config.js content
+      # Retrieve and include config.js content
+      - name: Generate config.yaml from config.js
         run: |
-          cat docs/.vitepress/config.js > config.js_content.txt
-
-      - name: Include config.js in deployment
-        run: |
-          echo "config_js_content: |" >> docs/.vitepress/dist/config.yaml
-          cat config.js_content.txt >> docs/.vitepress/dist/config.yaml
+          # Convert config.js to YAML format
+          node -e "console.log(require('js-yaml').dump(require('./docs/.vitepress/config.js')))" > docs/.vitepress/dist/config.yaml
