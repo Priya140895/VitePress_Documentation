@@ -27,30 +27,6 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm ci
-      - name: Add config.js
-        run: |
-          echo "module.exports = {" > docs/.vitepress/config.js
-          echo "  title: 'Attest Documentation'," >> docs/.vitepress/config.js
-          echo "  themeConfig: {" >> docs/.vitepress/config.js
-          echo "    sidebar: [" >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Track', link: 'about/attesttrack.md' }," >> docs/.vitepress/config.js    
-          echo "          { text: 'Attest Functions', link: 'VitePress_Documentation/about/attestfunctions' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }," >> docs/.vitepress/config.js
-          echo "      {" >> docs/.vitepress/config.js
-          echo "        text: 'Attest Functionalities'," >> docs/.vitepress/config.js
-          echo "        collapsed: false," >> docs/.vitepress/config.js
-          echo "        items: [" >> docs/.vitepress/config.js
-          echo "          { text: 'Attest Functions', link: '/attestfunc' }" >> docs/.vitepress/config.js
-          echo "        ]" >> docs/.vitepress/config.js
-          echo "      }" >> docs/.vitepress/config.js
-          echo "    ]" >> docs/.vitepress/config.js
-          echo "  }" >> docs/.vitepress/config.js
-          echo "}" >> docs/.vitepress/config.js
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
@@ -69,3 +45,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+ # Add a step to include config.js
+      - name: Include config.js
+        run: |
+          cp docs/.vitepress/config.js docs/.vitepress/dist/
