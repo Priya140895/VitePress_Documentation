@@ -30,6 +30,7 @@ jobs:
          # Add a step to include config.js
       - name: Include config.js
         run: cp docs/.vitepress/config.js docs/.vitepress/dist/config.js
+  
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
