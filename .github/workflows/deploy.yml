@@ -43,15 +43,15 @@ jobs:
           echo "    sidebar: {" >> docs/.vitepress/config.js
           echo "      '/': [" >> docs/.vitepress/config.js
           echo "        { text: 'Home', link: '/' }," >> docs/.vitepress/config.js
-          echo "        { text: 'Attest Track', link: '/attesttrack.md' }" >> docs/.vitepress/config.js
+          echo "        { text: 'Attest Function', link: '/attestfunc.md' }" >> docs/.vitepress/config.js
           echo "      ]," >> docs/.vitepress/config.js
           echo "    }," >> docs/.vitepress/config.js
           echo "  }," >> docs/.vitepress/config.js
           echo "}" >> docs/.vitepress/config.js
-      - name: Create attesttrack.md
+      - name: Create attestfunction.md
         run: |
-          echo "# Attest Track" > docs/attesttrack.md
-        #  echo "This is the content of Attest Track." >> docs/attesttrack.md
+          echo "# Attest Function" > docs/attestfunc.md
+        #  echo "This is the content of Attest Track." >> docs/attestfunc.md
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
