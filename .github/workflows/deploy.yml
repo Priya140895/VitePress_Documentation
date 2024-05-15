@@ -37,8 +37,8 @@ jobs:
       
       - name: Create attestfunction.md
         run: |
-          echo " { text: 'Attest Function', link: 'docs/.vitepress/dist/about/attestfunctions.html' }" >> docs/.vitepress/config.js
-          path docs/.vitepress/dist/about/attestfunctions.html
+          echo " { text: 'Attest Function', link: 'about/attestfunctions.html' }" >> docs/.vitepress/config.js
+          #path docs/.vitepress/dist/about/attestfunctions.html
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
