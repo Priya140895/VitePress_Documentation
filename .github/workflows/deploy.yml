@@ -35,10 +35,10 @@ jobs:
       - name: Install dependencies
         run: npm ci # or pnpm install / yarn install / bun install
       
-      - name: Create attestfunction.md
+      - name: Create link to Attest Function in config.js
         run: |
-          echo " { text: 'Attest Function', link: 'about/attestfunctions.html' }" >> docs/.vitepress/config.js
-          #path docs/.vitepress/dist/about/attestfunctions.html
+         echo "  { text: 'Attest Function', link: '/about/attestfunctions.html' }," >> docs/.vitepress/config.js
+#path docs/.vitepress/dist/about/attestfunctions.html
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
