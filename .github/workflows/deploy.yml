@@ -51,10 +51,7 @@ jobs:
           echo "  }" >> docs/.vitepress/config.js
           echo "}" >> docs/.vitepress/config.js
 
-      - name: Create attesttrack.md
-        run: |
-          echo "# Attest Functions" > docs/.vitepress/dist/about
-         # echo "This is the content of Attest Track." >> docs/attesttrack.md
+     
       - name: Build with VitePress
         run: npm run docs:build
       - name: Upload artifact
