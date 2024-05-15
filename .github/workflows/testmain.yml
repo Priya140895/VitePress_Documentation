@@ -45,6 +45,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      # Create the dist directory if it doesn't exist
+      - name: Create dist directory if not exists
+        run: mkdir -p docs/.vitepress/dist
+
       # Retrieve and include config.js content
       - name: Generate config.yaml from config.js
         run: |
